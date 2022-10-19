@@ -1,7 +1,39 @@
 'use strict'
+
+const personalPlanPeter = {
+  name: "Peter",
+  age: "29",
+  skills: {
+      languages: ['ru', 'eng'],
+      programmingLangs: {
+          js: '20%',
+          php: '10%'
+      },
+      exp: '1 month'
+  }
+};
+
+function showExperience(plan) {
+  let {skills} = plan;
+  let {exp} = skills;
+    return console.log(exp);
+};
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+  let {skills} = plan;
+  let {programmingLangs} = skills;
+  for(let lang in programmingLangs){
+    //if(!programmingLangs) return '';
+    `Язык ${lang} изучен на `//${lang}`
+  }
+}
+showProgrammingLangs(personalPlanPeter)
+/*Язык js изучен на 20% Язык php изучен на 10%"
+
 let numberOfFilms;
 
-function start(){
+/*function start(){
   numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
   while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
@@ -19,7 +51,7 @@ const personalMovieDB = {
   privat: false
 };
 
-function rememberMyFilms(){
+/*function rememberMyFilms(){
   for(let i = 0; i < 2; i++) {
     const a = prompt('Один из последних просмотренных фильмов?', ''),
           b = +prompt('На сколько оцените его?', '');
@@ -31,7 +63,7 @@ function rememberMyFilms(){
   }
 };
 
-rememberMyFilms();
+//rememberMyFilms();
 
 function detectPesonalLevel() {
   if(personalMovieDB.count < 10) { alert("Просмотрено довольно мало фильмов")}
@@ -39,7 +71,7 @@ function detectPesonalLevel() {
   else if(personalMovieDB.count > 30) {  alert("Вы киноман")}
   else {  alert("Произошла ошибка")}
 };
-detectPesonalLevel()
+//detectPesonalLevel()
 
 function showMyDB(){
   if(!numberOfFilms.privat) {
@@ -47,7 +79,7 @@ function showMyDB(){
   }
 }
 
-showMyDB();
+//showMyDB();
 
 function writeYourGenres() {
   for(let i = 0; i < 3; i++){
@@ -55,7 +87,9 @@ function writeYourGenres() {
   personalMovieDB.genres[i] = q;
   }
 }
-writeYourGenres()
+//writeYourGenres()
+*/
+//console.log(Object.keys(personalMovieDB))
 /* Замикання--------------
 
 function f1() {
