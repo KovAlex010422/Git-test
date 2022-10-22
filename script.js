@@ -1,5 +1,37 @@
-'use strict'
+'use strict';
 
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof str == 'string'){
+        return str.split('').reverse().join('')
+    }
+}
+console.log(reverse(someString))
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+
+}
+/*/Array ==============
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+  if(arr.length){
+    return `Семья состоит из: ${arr.join(' ')}`
+  } else {return 'Сем*я пуста'}
+}
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    return console.log(arr.map(el => el.toLowerCase()).join('\n'));
+}
+
+/* Objects =========================
 const personalPlanPeter = {
   name: "Peter",
   age: "29",
@@ -10,26 +42,34 @@ const personalPlanPeter = {
           php: '10%'
       },
       exp: '1 month'
+  },
+  showAgeAndLangs: function (plan){
+    return `Мне ${plan.age} и я владею языками: ${plan.skills.languages.map(i => i.toLocaleUpperCase()).join(' ')}`
   }
 };
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter))
 
 function showExperience(plan) {
   let {skills} = plan;
   let {exp} = skills;
-    return console.log(exp);
+    return exp;
 };
 showExperience(personalPlanPeter);
 
 function showProgrammingLangs(plan) {
   let {skills} = plan;
   let {programmingLangs} = skills;
+  let str ='';
   for(let lang in programmingLangs){
-    //if(!programmingLangs) return '';
-    `Язык ${lang} изучен на `//${lang}`
+    if(!lang) return str;
+    str += `Язык ${lang} изучен на ${programmingLangs[lang]}\n`;
   }
+  return str;
 }
-showProgrammingLangs(personalPlanPeter)
-/*Язык js изучен на 20% Язык php изучен на 10%"
+showProgrammingLangs(personalPlanPeter);
+
+
+/*
 
 let numberOfFilms;
 
