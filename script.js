@@ -3,21 +3,18 @@
 const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
 
 function sortStudentsByGroups(arr) {
-    let sorted = students.sort();
+    let sorted = arr.sort();
     let result = [];
-    for(let i = 0; i < sorted.length; i+=3){
-      console.log(result[i])
-
-        result.push(sorted.slice(i, i+3))
-    }
-        for(let k = 0; k < result.length; k++){
-      if(result[k].length == 0){
-        result[k] = 'Оставшиеся студенты: -'
+    let floor = sorted.length % 3;
+      for(let i = 0; i < sorted.length; i+=3){
+          result.push(sorted.slice(i, i+3))
       }
-      else if(result[k].length <3){
-        result[k] = 'Оставшиеся студенты: ' + result[k].join(', ')
-      }
-    }
+      console.log(result[result.length -1])
+        if (floor === 0){
+          result.push('Оставшиеся студенты: -')
+        } else {
+            result[result.length -1] = 'Оставшиеся студенты: ' + result[result.length -1].join(', ')
+        }
     return result
 }
 console.log(sortStudentsByGroups(students))
