@@ -1,5 +1,15 @@
 'use strict';
-const restorantData = {
+function factorial(f) {
+  if ( typeof(f) !== 'number' || !Number.isInteger(f)) {
+      return 'Wrong data'
+  }
+  else if ( f >= 1 )
+  {return f * factorial(f -1)}
+else return 1
+}
+factorial(5)
+
+/* const restorantData = {
   menu: [
       {
           name: 'Salad Caesar',
@@ -25,6 +35,13 @@ const restorantData = {
   openNow: true
 };
 
+
+
+/*3) Функция transferWaitors создана для того, чтобы копировать шаблон данных и передавать их в другой ресторан. Конечно, в другом ресторане будут другие блюда, другие официанты и тп. Сейчас эта функция только в начале разработки и должна менять данные про официантов.
+
+Но в нынешнем виде мы обнаружили, что после её запуска не только копия данных содержит новых официантов, но и основные данные! В restorantData сотрудник Alice исчезает и заменяется Mike! Необходимо найти причину и немедленно исправить, чтобы данные были разделены.
+
+
 function isOpen(prop) {
   let answer;
   !prop ? answer = 'Закрыто' : answer = 'Открыто';
@@ -48,12 +65,8 @@ function transferWaitors(data) {
   copy.waitors = [{name: 'Mike', age: 32}];
   return copy
 }
-console.log(restorantData);
 console.log(transferWaitors(restorantData));
 
-/*3) Функция transferWaitors создана для того, чтобы копировать шаблон данных и передавать их в другой ресторан. Конечно, в другом ресторане будут другие блюда, другие официанты и тп. Сейчас эта функция только в начале разработки и должна менять данные про официантов.
-
-Но в нынешнем виде мы обнаружили, что после её запуска не только копия данных содержит новых официантов, но и основные данные! В restorantData сотрудник Alice исчезает и заменяется Mike! Необходимо найти причину и немедленно исправить, чтобы данные были разделены.
 
 /* 
 const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
