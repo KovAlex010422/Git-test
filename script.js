@@ -1,5 +1,57 @@
 'use strict';
-function factorial(f) {
+/*
+В каждой книге есть n страниц с номерами страниц от 1 до n. Написать функцию amountOfPages, аргумент которой summary составляется путем сложения количества цифр всех номеров страниц. Эта функция возвращает число - количество страниц n в книге. Чтобы было понятно что такое количество цифр, давайте рассмотрим примеры.
+Пример: Если на входе функции summary = 25, то на результат должен быть 17. Всего в числах от 1 до 17 содержится 25 цифр: 1234567891011121314151617.
+Функция на вход как раз принимает это общее количество цифр, а возвращает конечное число, то есть последнюю страницу книги.
+        amountOfPages(5) => 5
+        amountOfPages(25) => 17
+        amountOfPages(1095) => 401   
+        amountOfPages(185) => 97*/
+
+function amountOfPages(n){
+  let a = [],
+      b = 1;
+  function f(){
+    a.push(b);
+    b++;
+    if (b > n) return;
+    f()
+  };
+  f();
+  let  t = a.reduce(function(ac, cur) { 
+    //if(ac.toString().length + cur.toString().length == n) return cur ; 
+    console.log('ac - ' + ac);
+    console.log('cur - ' + cur);
+/*     console.log('sum - ' +  Number(ac + cur));
+ */ 
+    if(ac == n) return cur.toString().length + 1 ;
+    return ac += cur.toString().length ;
+    
+    //return ac + cur.toString().length
+  }, 0);
+  console.log(t);
+  return t;
+};
+
+amountOfPages(185);
+
+/*Задание:
+
+Панграмма — это предложение, в котором каждая буква алфавита встречается хотя бы по одному разу без повторений. Например, предложение «The quick brown fox jumps over the lazy dog» является панграммой, поскольку в нем хотя бы один раз используются буквы от A до Z (регистр значения не имеет).
+
+Напишите функцию isPangram, которая принимает в себя строку и возвращает логическое значение. Если строка является панграммой - вернется true, если нет - false.
+
+Пример:
+
+isPangram(«The quick brown fox jumps over the lazy dog») => true
+
+isPangram(«Hello world») => false
+
+function isPangram(string) {
+
+} */
+
+/*function factorial(f) {
   if ( typeof(f) !== 'number' || !Number.isInteger(f)) {
       return 'Wrong data'
   }
@@ -8,7 +60,7 @@ function factorial(f) {
 else return 1
 }
 factorial(5)
-
+*/
 /* const restorantData = {
   menu: [
       {
