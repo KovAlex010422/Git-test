@@ -6,9 +6,19 @@
         amountOfPages(5) => 5
         amountOfPages(25) => 17
         amountOfPages(1095) => 401   
-        amountOfPages(185) => 97*/
+        amountOfPages(185) => 97
 
 function amountOfPages(n){
+  let res,
+      str = '';
+
+    for(let i = 1; i < n; i++) {
+      str+=i;
+      if(str.length == n) {
+        return res = i;
+      }
+    }
+    return res
   let a = [],
       b = 1;
   function f(){
@@ -18,39 +28,35 @@ function amountOfPages(n){
     f()
   };
   f();
-  let  t = a.reduce(function(ac, cur) { 
-    //if(ac.toString().length + cur.toString().length == n) return cur ; 
-    console.log('ac - ' + ac);
-    console.log('cur - ' + cur);
-/*     console.log('sum - ' +  Number(ac + cur));
- */ 
-    if(ac == n) return cur.toString().length + 1 ;
-    return ac += cur.toString().length ;
-    
-    //return ac + cur.toString().length
-  }, 0);
-  console.log(t);
-  return t;
+  let v = 0,
+      l = 0;
+  for(let i = 0; i < a.length; i++) {
+    v += a[i].toString().length;
+    if(v == n)  return l += a[i];
+  }
+  return l 
 };
-
-amountOfPages(185);
+console.log(amountOfPages(25));
 
 /*Задание:
 
 Панграмма — это предложение, в котором каждая буква алфавита встречается хотя бы по одному разу без повторений. Например, предложение «The quick brown fox jumps over the lazy dog» является панграммой, поскольку в нем хотя бы один раз используются буквы от A до Z (регистр значения не имеет).
-
 Напишите функцию isPangram, которая принимает в себя строку и возвращает логическое значение. Если строка является панграммой - вернется true, если нет - false.
 
 Пример:
-
 isPangram(«The quick brown fox jumps over the lazy dog») => true
-
 isPangram(«Hello world») => false
-
+*/
 function isPangram(string) {
-
-} */
-
+  let ar = string.split(' ').join('');
+  let arr = Array.from(ar);
+  let newSet = new Set(arr);
+  console.log(arr);
+  console.log(newSet);
+ // let setToStr = Array.from(newSet)
+  return arr.length == newSet.length;
+}
+console.log(isPangram('The quick brown fox jumps over the lazy dog'))
 /*function factorial(f) {
   if ( typeof(f) !== 'number' || !Number.isInteger(f)) {
       return 'Wrong data'
