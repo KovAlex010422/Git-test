@@ -46,17 +46,26 @@ console.log(amountOfPages(25));
 Пример:
 isPangram(«The quick brown fox jumps over the lazy dog») => true
 isPangram(«Hello world») => false
-*/
+
 function isPangram(string) {
-  let ar = string.split(' ').join('');
-  let arr = Array.from(ar);
-  let newSet = new Set(arr);
-  console.log(arr);
-  console.log(newSet);
- // let setToStr = Array.from(newSet)
-  return arr.length == newSet.length;
+  string = string.split('');
+  let a = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  return a.every((leter) => string.includes(leter))
 }
 console.log(isPangram('The quick brown fox jumps over the lazy dog'))
+*/
+/*
+Создайте функцию deepCount, которая будет считать количество всех элементов в массиве, включая и вложенные массивы. Учтите, что сам вложенный массив тоже входит в счет. Чтобы понять задачу детальнее, давайте рассмотрим примеры:
+deepCount([1, 5, 3]) => 3
+deepCount(["1", 5, "3", ["10"]]) => 5 (Заметьте, что последний элемент был посчитан сам + его внутренность)
+deepCount([1, 2, [3, 4, [5]]]) => 7
+deepCount([]) => 0
+deepCount([[[[[[[[[]]]]]]]]]) => 8
+*/
+function deepCount(a){
+
+}
+console.log(deepCount([1,2,3,[4]]));
 /*function factorial(f) {
   if ( typeof(f) !== 'number' || !Number.isInteger(f)) {
       return 'Wrong data'
