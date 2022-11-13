@@ -1,4 +1,51 @@
 'use strict';
+
+function deepCount(arr){    
+  let count = 0;
+  if (!arr.some(item => Array.isArray(item))) {        
+     count = arr.length;        
+     return count;    
+  } else {        
+     let newArr = arr.filter(item => Array.isArray(item)).flat();        
+     count += arr.length + deepCount(newArr);    
+  }     
+  return count;
+}
+/*
+function deepCount(a) {
+  let total = 0;
+  a.forEach(item => {
+      if (Array.isArray(item)) {
+          total += 1;
+          return total+=deepCount(item)
+      } else {
+        total+=1
+      }
+  })
+  return total;
+}
+*/
+console.log(deepCount([[[[[[[[[]]]]]]]]]));
+console.log(deepCount([1, 5, 3]));
+console.log(deepCount([1, 2, [3, 4, [5]]]))
+/*function deepCount(a){
+  let count = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    if(!Array.isArray(a[i])){
+      count++
+    } else {
+      count++;
+      for (let j = 0; j < a[i].length; j++) {
+        return count+=deepCount(a[i]);
+      }
+    }
+  }    
+  return count
+} 
+
+let res = deepCount([1,[1,[5]]]);
+console.log(res)
 /*
 В каждой книге есть n страниц с номерами страниц от 1 до n. Написать функцию amountOfPages, аргумент которой summary составляется путем сложения количества цифр всех номеров страниц. Эта функция возвращает число - количество страниц n в книге. Чтобы было понятно что такое количество цифр, давайте рассмотрим примеры.
 Пример: Если на входе функции summary = 25, то на результат должен быть 17. Всего в числах от 1 до 17 содержится 25 цифр: 1234567891011121314151617.
@@ -62,10 +109,20 @@ deepCount([1, 2, [3, 4, [5]]]) => 7
 deepCount([]) => 0
 deepCount([[[[[[[[[]]]]]]]]]) => 8
 */
-function deepCount(a){
+//function deepCount(a){
 
+//}
+//console.log(deepCount([1,2,3,[4]]));
+//debugger
+/*
+function pow(x, n){ 
+  if(n === 1){
+    return x
+  } else {
+    return x * pow(x, n - 1)
+  }
 }
-console.log(deepCount([1,2,3,[4]]));
+ console.log(pow(2, 4))*/
 /*function factorial(f) {
   if ( typeof(f) !== 'number' || !Number.isInteger(f)) {
       return 'Wrong data'
